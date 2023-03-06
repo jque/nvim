@@ -61,14 +61,17 @@ return {
       vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
         vim.lsp.buf.format()
       end, { desc = 'Format current buffer with LSP' })
+
+      -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#eslint
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = bufnr,
+        command = "EslintFixAll",
+      });
     end
 
     -- use either `LspSettings buffer` or `LspSettings tsserver` to add a new config.
     local servers = {
-      -- clangd = {},
-      -- gopls = {},
-      -- pyright = {},
-      -- rust_analyzer = {},
+      eslint = {},
       tsserver = {},
       lua_ls = {
         Lua = {

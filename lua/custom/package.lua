@@ -29,7 +29,7 @@ require('lazy').setup({
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim',  opts = {} },
 
-  require 'kickstart.plugins.autoformat',
+  -- require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
   require 'custom.themes',
 
