@@ -61,6 +61,10 @@ return {
       vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
         vim.lsp.buf.format()
       end, { desc = 'Format current buffer with LSP' })
+    end
+
+    local eslint_on_attach = function(_, bufnr)
+      on_attach(_, bufnr)
 
       -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#eslint
       vim.api.nvim_create_autocmd("BufWritePre", {
@@ -98,12 +102,17 @@ return {
 
     mason_lspconfig.setup_handlers {
       function(server_name)
-
-        lspconfig[server_name].setup {
+        local config = {
           capabilities = capabilities,
           on_attach = on_attach,
           settings = servers[server_name],
         }
+
+        if server_name == 'eslint' then
+          config.on_attach = eslint_on_attach
+        end
+
+        lspconfig[server_name].setup(config)
       end,
     }
   end,
