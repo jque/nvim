@@ -3,7 +3,20 @@
 return {
   'nvim-telescope/telescope.nvim',
   version = '*',
-  dependencies = { 'nvim-lua/plenary.nvim' },
+  dependencies = { 
+    'nvim-lua/plenary.nvim',
+    'kelly-lin/telescope-ag',
+    'nvim-telescope/telescope-file-browser.nvim',
+    {
+      'nvim-telescope/telescope-fzf-native.nvim',
+      -- NOTE: If you are having trouble with this installation,
+      --       refer to the README for telescope-fzf-native for more instructions.
+      build = 'make',
+      cond = function()
+        return vim.fn.executable 'make' == 1
+      end,
+    }
+  },
   config = function()
     require('telescope').setup {
       defaults = {
@@ -16,8 +29,9 @@ return {
       },
     }
 
-    -- Enable telescope fzf native, if installed
     pcall(require('telescope').load_extension, 'fzf')
+    pcall(require('telescope').load_extension, 'ag')
+    pcall(require('telescope').load_extension, 'file_browser')
 
     -- See `:help telescope.builtin`
     vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
