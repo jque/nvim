@@ -2,14 +2,24 @@
 vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
 return {
-  "nvim-neo-tree/neo-tree.nvim",
+  "nvim-tree/nvim-tree.lua",
   version = "*",
   dependencies = {
-    "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-    "MunifTanjim/nui.nvim",
   },
   config = function()
-    require('neo-tree').setup {}
+    require('nvim-tree').setup {
+      view = {
+        width = 40,
+      },
+      renderer = {
+        group_empty = false,
+      },
+      filters = {
+        dotfiles = true,
+      },
+    }
+
+    vim.keymap.set('n', '<leader>t', ':NvimTreeToggle<CR>', { desc = "[T]ree toogle" })
   end,
 }
