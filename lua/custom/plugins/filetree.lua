@@ -18,6 +18,10 @@ return {
       filters = {
         dotfiles = true,
       },
+      update_focused_file = {
+        enable = true,
+        update_root = true,
+      }
     }
 
     vim.keymap.set('n', '<leader>t', ':NvimTreeToggle<CR>', { desc = "[T]ree toogle" })
