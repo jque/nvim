@@ -63,13 +63,26 @@ return {
       end, { desc = 'Format current buffer with LSP' })
     end
 
+    local eslint_fix_all_format_is_enabled = true
+
+    vim.api.nvim_create_user_command('EslintFixAllToggle', function()
+      eslint_fix_all_format_is_enabled = not eslint_fix_all_format_is_enabled
+      print('EslintFixAll BufWritePre setting to: ' .. tostring(eslint_fix_all_format_is_enabled))
+    end, {})
+
     local eslint_on_attach = function(_, bufnr)
       on_attach(_, bufnr)
 
       -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#eslint
       vim.api.nvim_create_autocmd("BufWritePre", {
         buffer = bufnr,
-        command = "EslintFixAll",
+        callback = function()
+          if not eslint_fix_all_format_is_enabled then
+            return
+          end
+
+          vim.cmd("EslintFixAll")
+        end
       });
     end
 
@@ -99,24 +112,6 @@ return {
     mason_lspconfig.setup {
       ensure_installed = vim.tbl_keys(servers),
     }
-
-    lspconfig["dartls"].setup({
-      on_attach = on_attach,
-      root_dir = lspconfig.util.root_pattern('.git'),
-      settings = {
-        dart = {
-          analysisExcludedFolders = {
-            vim.fn.expand("$HOME/AppData/Local/Pub/Cache"),
-            vim.fn.expand("$HOME/.pub-cache"),
-            vim.fn.expand("/opt/homebrew/"),
-            vim.fn.expand("$HOME/tools/flutter/"),
-          },
-          updateImportsOnRename = true,
-          completeFunctionCalls = true,
-          showTodos = true,
-        }
-      },
-    })
 
     mason_lspconfig.setup_handlers {
       function(server_name)
