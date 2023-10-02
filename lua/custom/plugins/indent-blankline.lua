@@ -1,9 +1,9 @@
 -- Add indentation guides even on blank lines
--- See `:help indent_blankline.txt`
+-- See `:help ibl.config`
 return {
-  'lukas-reineke/indent-blankline.nvim',
+  "lukas-reineke/indent-blankline.nvim",
+  main = "ibl",
   opts = {
-    char = '┊',
-    show_trailing_blankline_indent = false,
+    indent = { char = '┊' },
   },
 }
