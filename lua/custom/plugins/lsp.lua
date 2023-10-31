@@ -88,8 +88,28 @@ return {
 
     -- use either `LspSettings buffer` or `LspSettings tsserver` to add a new config.
     local servers = {
+      html = {},
       eslint = {},
       tsserver = {},
+      yamlls = {
+        yaml = {
+          schemas = {
+            ["kubernetes"] = "/templates/*.yaml",
+          },
+        },
+      },
+      jsonls = {
+        settings = {
+          json = {
+            format = {
+              enable = true,
+            },
+          },
+          validate = { enable = true },
+        },
+      },
+      dockerls = {},
+      bashls = {},
       lua_ls = {
         Lua = {
           workspace = { checkThirdParty = false },
