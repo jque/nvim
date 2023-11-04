@@ -3,9 +3,8 @@
 return {
   'nvim-telescope/telescope.nvim',
   version = '*',
-  dependencies = { 
+  dependencies = {
     'nvim-lua/plenary.nvim',
-    'kelly-lin/telescope-ag',
     'nvim-telescope/telescope-file-browser.nvim',
     {
       'nvim-telescope/telescope-fzf-native.nvim',
@@ -30,7 +29,6 @@ return {
     }
 
     pcall(require('telescope').load_extension, 'fzf')
-    pcall(require('telescope').load_extension, 'ag')
     pcall(require('telescope').load_extension, 'file_browser')
 
     -- See `:help telescope.builtin`
@@ -51,5 +49,6 @@ return {
     vim.keymap.set('n', '<leader>sb', require('telescope.builtin').buffers, { desc = '[S]earch [B]buffers' })
     vim.keymap.set('n', '<leader>sc', require('telescope.builtin').git_status, { desc = '[S]earch [C]changes' })
     vim.keymap.set('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = '[S]earch [k]eymaps' })
+    vim.keymap.set('n', '<leader>sj', require('telescope.builtin').jumplist, { desc = '[S]earch [J]umplist' })
   end,
 }
