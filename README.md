@@ -6,7 +6,7 @@ Custom version of [https://github.com/nvim-lua/kickstart.nvim](https://github.co
 
 ### nvim-tree
 
-| Command | Description |
+| Mappings | Description |
 | --- | --- |
 | R | (refresh) to perform a reread of the files contained in the project |
 | H | (hide) to hide/display hidden files and folders (beginning with a dot .) |
