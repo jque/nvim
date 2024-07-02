@@ -47,7 +47,7 @@ return {
 
       nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
       nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-      nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
+      -- nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
       nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
       -- Lesser used LSP functionality

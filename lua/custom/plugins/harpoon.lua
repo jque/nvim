@@ -13,6 +13,9 @@ return {
     harpoon.setup({
       menu = {
         width = vim.api.nvim_win_get_width(0) - 100,
+      },
+      global_settings = {
+        mark_branch = true;
       }
     })
 
