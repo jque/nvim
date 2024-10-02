@@ -17,15 +17,15 @@ return {
   config = function()
     local lspconfig = require("lspconfig")
     local mason_lspconfig = require 'mason-lspconfig'
-    local nls_psettings = require("nlspsettings")
-
-    nls_psettings.setup({
-      config_home = vim.fn.stdpath('config') .. '/nlsp-settings',
-      local_settings_dir = ".nlsp-settings",
-      local_settings_root_markers_fallback = { '.git' },
-      append_default_schemas = true,
-      loader = 'json'
-    })
+    -- local nls_psettings = require("nlspsettings")
+    --
+    -- nls_psettings.setup({
+    --   config_home = vim.fn.stdpath('config') .. '/nlsp-settings',
+    --   local_settings_dir = ".nlsp-settings",
+    --   local_settings_root_markers_fallback = { '.git' },
+    --   append_default_schemas = true,
+    --   loader = 'json'
+    -- })
 
     local on_attach = function(_, bufnr)
       local nmap = function(keys, func, desc)
@@ -90,7 +90,8 @@ return {
     local servers = {
       html = {},
       eslint = {},
-      tsserver = {},
+      -- tsserver = {},
+      ts_ls = {},
       yamlls = {
         yaml = {
           schemas = {
