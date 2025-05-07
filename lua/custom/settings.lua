@@ -5,6 +5,7 @@ vim.o.hlsearch = false
 
 -- Make line numbers default
 vim.wo.number = true
+-- vim.opt.relativenumber = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -38,6 +39,12 @@ vim.o.expandtab = true
 
 vim.o.scrolloff = 4
 vim.o.cursorline = true
+
+--- vim.opt.foldmethod = "syntax"
+--- vim.opt.foldmethod = "indent"
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = 99
 
 -- Sync clipboard between OS and Neovim.
 -- Remove this option if you want your OS clipboard to remain independent.

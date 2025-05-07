@@ -19,3 +19,10 @@ Custom version of [https://github.com/nvim-lua/kickstart.nvim](https://github.co
 | Ctrl + k | to display information about the file such as size, creation date, etc. |
 | g + ? | to open the help with all the predefined shortcuts for quick reference |
 | q | to close the file explorer |
+
+
+### code suggestions
+
+- https://codeium.com/
+- https://supermaven.com/
+- https://github.com/augmentcode/augment.vim

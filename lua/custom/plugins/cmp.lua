@@ -51,6 +51,7 @@ return {
         end, { 'i', 's' }),
       },
       sources = {
+        -- { name = "supermaven" },
         {
           name = 'buffer',
           max_item_count = 5,
