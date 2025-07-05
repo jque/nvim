@@ -21,8 +21,22 @@ Custom version of [https://github.com/nvim-lua/kickstart.nvim](https://github.co
 | q | to close the file explorer |
 
 
-### code suggestions
 
+### Avante
+
+| Mappings | Description |
+| --- | --- |
+| <leader>a | Activate the Avante prompt |
+| <leader>aa | Open the Avante chat window |
+| <leader>ac | Send the selected code to Claude |
+| <leader>ae | Explain the selected code |
+| <leader>ar | Request a code review for the selection |
+| <leader>af | Fix or improve the selected code |
+| <leader>ad | Generate documentation for the selection |
+| <leader>at | Generate tests for the selected code |
+
+
+### code suggestions
 - https://codeium.com/
 - https://supermaven.com/
 - https://github.com/augmentcode/augment.vim
