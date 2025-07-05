@@ -21,7 +21,6 @@ Custom version of [https://github.com/nvim-lua/kickstart.nvim](https://github.co
 | q | to close the file explorer |
 
 
-
 ### Avante
 
 | Mappings | Description |
@@ -34,6 +33,35 @@ Custom version of [https://github.com/nvim-lua/kickstart.nvim](https://github.co
 | <leader>af | Fix or improve the selected code |
 | <leader>ad | Generate documentation for the selection |
 | <leader>at | Generate tests for the selected code |
+
+
+### LSP
+
+| Mappings | Description |
+| --- | --- |
+| <leader>rn | [R]e[n]ame |
+| <leader>do | [C]ode [A]ction |
+| <leader>gd | [G]oto [D]efinition |
+| <leader>gr | [G]oto [R]eferences |
+| <leader>gi | [G]oto [I]mplementation |
+| <leader>D | Type [D]efinition |
+| <leader>ds | [D]ocument [S]ymbols |
+| <leader>ws | [W]orkspace [S]ymbols |
+| gD | [G]oto [D]eclaration |
+| gd | [G]oto [D]efinition |
+| <C-k> | Signature Documentation |
+| <leader>wa | [W]orkspace [A]dd Folder |
+| <leader>wr | [W]orkspace [R]emove Folder |
+| <leader>wl | [W]orkspace [L]ist Folders |
+
+
+### Copilot
+
+| Mappings | Description |
+| --- | --- |
+| <C-y> | Accept suggestion |
+| <C-]> | Dismiss suggestion |
+| <C-j> | Accept word |
 
 
 ### code suggestions
