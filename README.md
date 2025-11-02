@@ -4,67 +4,144 @@
 
 Custom version of [https://github.com/nvim-lua/kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim).
 
-### nvim-tree
+## Keymap Cheat Sheet
 
-| Mappings | Description |
-| --- | --- |
-| R | (refresh) to perform a reread of the files contained in the project |
-| H | (hide) to hide/display hidden files and folders (beginning with a dot .) |
-| E | (expand_all) to expand the entire file tree starting from the root folder (workspace) |
-| W | (collapse_all) to close all open folders starting from the root folder |
-| - | (dir_up) allows you to go back up folders. This navigation also allows you to exit the root folder (workspace) to your home directory |
-| s | (system) to open the file with the system application set by default for that file type |
-| f | (find) to open the interactive file search to which search filters can be applied |
-| F | to close the interactive search |
-| Ctrl + k | to display information about the file such as size, creation date, etc. |
-| g + ? | to open the help with all the predefined shortcuts for quick reference |
-| q | to close the file explorer |
+### General
 
+| Mapping | Mode | Description |
+| --- | --- | --- |
+| `<leader>df` | normal | Show diagnostics in a floating window |
+| `<leader>dl` | normal | Send diagnostics to the location list |
+| `<leader>y` | normal | Yank to the system clipboard |
+| `<leader>p` | normal | Paste from the system clipboard |
+| Ctrl + backtick | insert | Leave insert mode quickly (Ghostty friendly) |
 
-### Avante
+### File Navigation
 
-| Mappings | Description |
-| --- | --- |
-| <leader>a | Activate the Avante prompt |
-| <leader>aa | Open the Avante chat window |
-| <leader>ac | Send the selected code to Claude |
-| <leader>ae | Explain the selected code |
-| <leader>ar | Request a code review for the selection |
-| <leader>af | Fix or improve the selected code |
-| <leader>ad | Generate documentation for the selection |
-| <leader>at | Generate tests for the selected code |
+#### File explorer (`nvim-tree`)
 
+| Mapping | Mode | Description |
+| --- | --- | --- |
+| `<leader>t` | normal | Toggle the file tree on the right side |
 
-### LSP
+#### Telescope pickers
 
-| Mappings | Description |
-| --- | --- |
-| <leader>rn | [R]e[n]ame |
-| <leader>do | [C]ode [A]ction |
-| <leader>gd | [G]oto [D]efinition |
-| <leader>gr | [G]oto [R]eferences |
-| <leader>gi | [G]oto [I]mplementation |
-| <leader>D | Type [D]efinition |
-| <leader>ds | [D]ocument [S]ymbols |
-| <leader>ws | [W]orkspace [S]ymbols |
-| gD | [G]oto [D]eclaration |
-| gd | [G]oto [D]efinition |
-| <C-k> | Signature Documentation |
-| <leader>wa | [W]orkspace [A]dd Folder |
-| <leader>wr | [W]orkspace [R]emove Folder |
-| <leader>wl | [W]orkspace [L]ist Folders |
+| Mapping | Mode | Description |
+| --- | --- | --- |
+| `<leader>?` | normal | Open recently used files |
+| `<leader>/` | normal | Fuzzy search in the current buffer |
+| `<leader>sf` | normal | Search project files (git files) |
+| `<leader>sb` | normal | List open buffers |
+| `<leader>sg` | normal | Live grep in the project |
+| `<leader>sw` | normal | Grep the word under the cursor |
+| `<leader>sh` | normal | Search help tags |
+| `<leader>sd` / `<leader>se` | normal | Search diagnostics / errors |
+| `<leader>sc` | normal | Show git status entries |
+| `<leader>sk` | normal | Search keymaps |
+| `<leader>sj` | normal | Show the jumplist |
+| `<leader>sr` | normal | Resume the previous picker |
 
+#### Harpoon
 
-### Copilot
+| Mapping | Mode | Description |
+| --- | --- | --- |
+| `<leader>ha` | normal | Add the current file to Harpoon |
+| `<leader>hm` | normal | Toggle the Harpoon menu |
+| `<leader>hp` | normal | Jump to the previous Harpoon entry |
+| `<leader>hn` | normal | Jump to the next Harpoon entry |
+| `<leader><space>` | normal | Toggle the Harpoon quick menu |
+| `<leader>sm` | normal | Telescope picker with Harpoon marks |
 
-| Mappings | Description |
-| --- | --- |
-| <C-y> | Accept suggestion |
-| <C-]> | Dismiss suggestion |
-| <C-j> | Accept word |
+### LSP & Diagnostics
 
+#### Core LSP actions
 
-### code suggestions
+| Mapping | Mode | Description |
+| --- | --- | --- |
+| `<leader>rn` | normal | Rename symbol |
+| `<leader>do` | normal | Code action |
+| `<leader>gd` | normal | Go to definition (Snacks picker) |
+| `<leader>gr` | normal | References via Telescope |
+| `<leader>gi` | normal | Go to implementation |
+| `<leader>D` | normal | Go to type definition |
+| `<leader>ds` | normal | Document symbols |
+| `<leader>ws` | normal | Workspace symbols |
+| `gD` | normal | Go to declaration |
+| `gd` | normal | Go to definition (Snacks picker) |
+| `K` | normal | Hover documentation |
+| `<C-k>` | normal | Signature help |
+| `<leader>wa` | normal | Add workspace folder |
+| `<leader>wr` | normal | Remove workspace folder |
+| `<leader>wl` | normal | List workspace folders |
+
+#### Diagnostic navigation (Lspsaga)
+
+| Mapping | Mode | Description |
+| --- | --- | --- |
+| `<leader>E` | normal | Jump to the previous diagnostic |
+| `<leader>e` | normal | Jump to the next diagnostic |
+
+### Completion & AI assistants
+
+#### nvim-cmp
+
+| Mapping | Mode | Description |
+| --- | --- | --- |
+| `<C-d>` | insert | Scroll completion documentation up |
+| `<C-f>` | insert | Scroll completion documentation down |
+| `<C-Space>` | insert | Trigger completion manually |
+| `<CR>` | insert | Confirm the selected item |
+| `<Tab>` | insert/select | Next item or expand/jump in a snippet |
+| `<S-Tab>` | insert/select | Previous item or jump backward in a snippet |
+
+#### GitHub Copilot
+
+| Mapping | Mode | Description |
+| --- | --- | --- |
+| `<C-y>` | insert | Accept suggestion |
+| `<C-]>` | insert | Dismiss suggestion |
+| `<C-j>` | insert | Accept the next word |
+
+#### Sidekick CLI
+
+| Mapping | Mode | Description |
+| --- | --- | --- |
+| `<Tab>` | normal | Jump to the next Sidekick edit suggestion (fallbacks to Tab) |
+| `<C-.>` | normal/insert/visual/terminal | Toggle the Sidekick CLI window |
+| `<leader>aa` | normal | Toggle the Sidekick CLI |
+| `<leader>as` | normal | Select a Sidekick CLI session |
+| `<leader>ad` | normal | Close the active CLI session |
+| `<leader>at` | normal/visual | Send the current context (`{this}`) |
+| `<leader>af` | normal | Send the current file |
+| `<leader>av` | visual | Send the visual selection |
+| `<leader>ap` | normal/visual | Open the Sidekick prompt picker |
+
+### Treesitter
+
+#### Incremental selection
+
+| Mapping | Mode | Description |
+| --- | --- | --- |
+| `<C-Space>` | normal/visual | Start or expand the selection |
+| `<C-s>` | normal/visual | Expand selection to the current scope |
+| Alt + Space | normal/visual | Shrink to the previous node |
+
+#### Textobjects & movements
+
+| Mapping | Mode | Description |
+| --- | --- | --- |
+| `aa` / `ia` | visual | Parameter (outer / inner) |
+| `af` / `if` | visual | Function (outer / inner) |
+| `ac` / `ic` | visual | Class (outer / inner) |
+| `]m` / `[m` | normal | Next / previous function start |
+| `]M` / `[M` | normal | Next / previous function end |
+| `]]` / `[[` | normal | Next / previous class start |
+| `][` / `[]` | normal | Next / previous class end |
+| `<leader>a` / `<leader>A` | normal | Swap parameter with next / previous |
+
+### Additional resources
+
 - https://codeium.com/
 - https://supermaven.com/
 - https://github.com/augmentcode/augment.vim
+
