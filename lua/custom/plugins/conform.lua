@@ -1,30 +1,57 @@
+--
+-- example config
+-- https://medium.com/@lysender/using-biome-with-neovim-and-conform-afcc0ea0524b
+--
 return {
   'stevearc/conform.nvim',
+  event = { 'BufWritePre' },
+  cmd = { 'ConformInfo' },
+  keys = {
+    {
+      '<leader>f',
+      function()
+        require('conform').format { async = true, lsp_format = 'never' }
+      end,
+      mode = '',
+      desc = '[F]ormat buffer',
+    },
+  },
   opts = {
+    notify_on_error = false,
     format_on_save = function(bufnr)
-      local disable_filetypes = { c = true, cpp = true }
-
-      if disable_filetypes[vim.bo[bufnr].filetype] then
-        return
-      end
-
+      local lsp_format_opt = 'never'
       return {
-        timeout_ms = 3000,
-        lsp_fallback = true,
-        -- stop_after_first = true,
+        timeout_ms = 500,
+        lsp_format = lsp_format_opt,
       }
     end,
     formatters_by_ft = {
-      javascript = { 'eslint_d', 'prettier' },
-      javascriptreact = { 'eslint_d', 'prettier' },
-      typescript = { 'eslint_d', 'prettier' },
-      typescriptreact = { 'eslint_d', 'prettier' },
+      go = { 'goimports', 'gofmt' },
+      lua = { 'stylua' },
+      rust = { 'rustfmt' },
       json = { 'prettier' },
       yaml = { 'prettier' },
       markdown = { 'prettier' },
-      lua = { 'stylua' },
+      javascript = { 'biome', 'biome-organize-imports', 'eslint_d' },
+      javascriptreact = { 'biome', 'biome-organize-imports', 'eslint_d' },
+      typescript = { 'biome', 'biome-organize-imports', 'eslint_d' },
+      typescriptreact = { 'biome', 'biome-organize-imports', 'eslint_d' },
     },
     formatters = {
+      ['biome-organize-imports'] = {
+        condition = function(ctx)
+          local biome_root = vim.fs.find({ 'biome.json' }, { path = ctx.filename, upward = true })
+
+          return biome_root[1] ~= nil
+        end,
+      },
+      biome = {
+        condition = function(ctx)
+          local biome_root = vim.fs.find({ 'biome.json' }, { path = ctx.filename, upward = true })
+
+          return biome_root[1] ~= nil
+        end,
+      },
       eslint_d = {
         condition = function(ctx)
           local eslint_root = vim.fs.find({

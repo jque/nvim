@@ -10,6 +10,7 @@ Custom version of [https://github.com/nvim-lua/kickstart.nvim](https://github.co
 
 | Mapping | Mode | Description |
 | --- | --- | --- |
+| `<leader>f` | normal | Format buffer |
 | `<leader>df` | normal | Show diagnostics in a floating window |
 | `<leader>dl` | normal | Send diagnostics to the location list |
 | `<leader>y` | normal | Yank to the system clipboard |
