@@ -1,4 +1,5 @@
 -- LSP Configuration & Plugins
+-- https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
 -- https://github.com/adalessa/alpha-nvim/blob/main/after/plugin/lsp.lua
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 
@@ -22,6 +23,39 @@ return {
   },
   config = function(_, opts)
     require('mason-lspconfig').setup(opts)
+
+    vim.lsp.config('biome', {
+      root_dir = function(bufnr, cb)
+        local fname = vim.api.nvim_buf_get_name(bufnr)
+        local found = vim.fs.find({ 'biome.json', 'biome.jsonc' }, { path = fname, upward = true })[1]
+
+        if found then
+          cb(vim.fn.fnamemodify(found, ':h'))
+        end
+      end,
+    })
+
+    vim.lsp.config('eslint', {
+      root_dir = function(bufnr, cb)
+        local fname = vim.api.nvim_buf_get_name(bufnr)
+        local found = vim.fs.find({
+          '.eslintrc',
+          '.eslintrc.js',
+          '.eslintrc.cjs',
+          '.eslintrc.json',
+          '.eslintrc.yaml',
+          '.eslintrc.yml',
+          'eslint.config.js',
+          'eslint.config.cjs',
+          'eslint.config.mjs',
+          'eslint.config.ts',
+        }, { path = fname, upward = true })[1]
+
+        if found then
+          cb(vim.fn.fnamemodify(found, ':h'))
+        end
+      end,
+    })
 
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('UserLspConfig', {}),
