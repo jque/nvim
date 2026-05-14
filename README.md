@@ -116,6 +116,7 @@ Custom version of [https://github.com/nvim-lua/kickstart.nvim](https://github.co
 | `<leader>af` | normal | Send the current file |
 | `<leader>av` | visual | Send the visual selection |
 | `<leader>ap` | normal/visual | Open the Sidekick prompt picker |
+| `<C-[>` | terminal | Exit terminal mode and return to normal mode |
 
 ### Treesitter
 
