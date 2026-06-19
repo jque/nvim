@@ -1,7 +1,7 @@
 -- Treesitter parser manager. Plugin installed in custom/package.lua.
 -- NOTE: the tree-sitter CLI must be installed system-wide.
 require('tree-sitter-manager').setup {
-  ensure_installed = { 'lua', 'python', 'vim', 'vimdoc', 'markdown', 'json', 'html', 'css', 'javascript', 'typescript', 'tsx' }, -- parsers installed at startup
+  ensure_installed = { 'lua', 'python', 'vim', 'vimdoc', 'markdown', 'json', 'html', 'css', 'javascript', 'typescript', 'tsx', 'diff' }, -- parsers installed at startup ('diff' for diffs.nvim)
   auto_install = true,
   highlight = true,
   -- Default Options

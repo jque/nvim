@@ -30,6 +30,16 @@ vim.api.nvim_create_autocmd('PackChanged', {
   end,
 })
 
+-- diffs.nvim integrations. Set BEFORE vim.pack.add so the value exists when
+-- the plugin is sourced. diffs.nvim lists gitsigns.nvim as conflicting, so we
+-- enable the explicit integration to make them coexist instead of overlapping.
+vim.g.diffs = {
+  integrations = {
+    fugitive = true, -- guh.nvim's optional git backend
+    gitsigns = true, -- we use gitsigns for gutter signs
+  },
+}
+
 -- Install + load -------------------------------------------------------------
 -- `version = vim.version.range('*')` tracks the latest semver tag (the
 -- equivalent of lazy.nvim's `version = '*'`); omitting it tracks the
@@ -46,6 +56,7 @@ vim.pack.add({
   { src = 'https://github.com/folke/which-key.nvim' },
   { src = 'https://github.com/nicwest/vim-camelsnek' },
   { src = 'https://github.com/justinmk/guh.nvim' },
+  { src = 'https://github.com/barrettruth/diffs.nvim' }, -- diff highlighting for guh.nvim
   { src = 'https://github.com/dmmulroy/ts-error-translator.nvim' },
 
   -- colorscheme
