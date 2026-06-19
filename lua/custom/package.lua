@@ -35,8 +35,9 @@ vim.api.nvim_create_autocmd('PackChanged', {
 -- enable the explicit integration to make them coexist instead of overlapping.
 vim.g.diffs = {
   integrations = {
-    fugitive = true, -- guh.nvim's optional git backend
-    gitsigns = true, -- we use gitsigns for gutter signs
+    fugitive = true,  -- guh.nvim's optional git backend
+    gitsigns = true,  -- we use gitsigns for gutter signs
+    telescope = true, -- highlight telescope git previews (replaces delta)
   },
 }
 
