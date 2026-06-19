@@ -18,6 +18,64 @@ return {
     }
   },
   config = function()
+    local previewers = require 'telescope.previewers'
+
+    -- delta-powered previewers for git pickers: syntax highlighting,
+    -- word-level diff and line numbers inside the floating preview.
+    -- Colors tuned to the tokyonight-night palette so the diff blends with
+    -- the editor instead of using delta's default saturated red/green.
+    local delta_args = {
+      '-c', 'core.pager=delta',
+      '-c', 'delta.paging=never',
+      '-c', 'delta.navigate=false',
+      '-c', 'delta.line-numbers=true',
+      '-c', 'delta.true-color=always',
+      '-c', 'delta.syntax-theme=tokyonight_night',
+      '-c', 'delta.minus-style=syntax #37222c',
+      '-c', 'delta.minus-emph-style=syntax #713137',
+      '-c', 'delta.plus-style=syntax #20303b',
+      '-c', 'delta.plus-emph-style=syntax #2c5a66',
+      '-c', 'delta.zero-style=syntax',
+      '-c', 'delta.line-numbers-minus-style=#f7768e',
+      '-c', 'delta.line-numbers-plus-style=#9ece6a',
+      '-c', 'delta.line-numbers-zero-style=#3b4261',
+      '-c', 'delta.line-numbers-left-style=#3b4261',
+      '-c', 'delta.line-numbers-right-style=#3b4261',
+      '-c', 'delta.file-style=#7aa2f7 bold',
+      '-c', 'delta.file-decoration-style=#3b4261 ul',
+      '-c', 'delta.hunk-header-style=file line-number syntax',
+      '-c', 'delta.hunk-header-decoration-style=#3b4261 ul',
+      '-c', 'delta.hunk-header-line-number-style=#737aa2',
+    }
+
+    -- Run git from the entry's directory so it resolves inside the repo
+    -- regardless of Neovim's cwd, and use absolute paths as pathspecs.
+    local function git_cmd(dir, extra)
+      local cmd = { 'git', '-C', dir }
+      vim.list_extend(cmd, delta_args)
+      vim.list_extend(cmd, extra)
+      return cmd
+    end
+
+    -- git_status: show the diff for the selected file (handles untracked files)
+    local delta_status = previewers.new_termopen_previewer {
+      get_command = function(entry)
+        local path = entry.path
+        local dir = vim.fn.fnamemodify(path, ':h')
+        if entry.status == '??' or entry.status:sub(1, 1) == 'A' then
+          return git_cmd(dir, { 'diff', '--no-index', '--', '/dev/null', path })
+        end
+        return git_cmd(dir, { 'diff', 'HEAD', '--', path })
+      end,
+    }
+
+    -- git_commits / git_bcommits: show the full commit diff
+    local delta_commits = previewers.new_termopen_previewer {
+      get_command = function(entry)
+        return git_cmd(vim.uv.cwd(), { 'show', '--stat', '--format=fuller', entry.value })
+      end,
+    }
+
     require('telescope').setup {
       defaults = {
         mappings = {
@@ -26,6 +84,11 @@ return {
                 ['<C-d>'] = false,
           },
         },
+      },
+      pickers = {
+        git_status = { previewer = delta_status },
+        git_commits = { previewer = delta_commits },
+        git_bcommits = { previewer = delta_commits },
       },
     }
 
