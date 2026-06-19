@@ -1,3 +1,0 @@
-return {
-  'justinmk/guh.nvim',
-}
