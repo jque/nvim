@@ -6,6 +6,8 @@ Custom version of [https://github.com/nvim-lua/kickstart.nvim](https://github.co
 
 ## Keymap Cheat Sheet
 
+> 📖 Guía completa de gestión de buffers, splits y pestañas: [doc/buffers-y-ventanas.md](doc/buffers-y-ventanas.md)
+
 ### General
 
 | Mapping | Mode | Description |
@@ -16,6 +18,21 @@ Custom version of [https://github.com/nvim-lua/kickstart.nvim](https://github.co
 | `<leader>y` | normal | Yank to the system clipboard |
 | `<leader>p` | normal | Paste from the system clipboard |
 | Ctrl + backtick | insert | Leave insert mode quickly (Ghostty friendly) |
+
+### Buffers & Windows
+
+Ver la guía completa con todos los comandos nativos en [doc/buffers-y-ventanas.md](doc/buffers-y-ventanas.md).
+
+| Mapping | Mode | Description |
+| --- | --- | --- |
+| `<C-h>` / `<C-j>` / `<C-k>` / `<C-l>` | normal | Move to the left / lower / upper / right window |
+| `<leader>sb` | normal | List open buffers (Telescope) |
+| `<C-^>` | normal | Toggle between the current and the alternate buffer |
+| `<C-w>s` / `<C-w>v` | normal | Horizontal / vertical split |
+| `<C-w>H/J/K/L` | normal | Move the current window to the far left / bottom / top / right |
+| `<C-w>=` | normal | Equalize window sizes |
+| `<C-w>o` | normal | Close all other windows |
+| `:bd` | command | Delete (close) the current buffer |
 
 ### File Navigation
 
