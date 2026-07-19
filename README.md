@@ -6,7 +6,7 @@ Custom version of [https://github.com/nvim-lua/kickstart.nvim](https://github.co
 
 ## Keymap Cheat Sheet
 
-> 📖 Guías completas: [buffers, splits y pestañas](doc/buffers-keybinds.md) · [LSP y diagnósticos](doc/lsp-keybinds.md) · [quickfix y listas](doc/quickfix-lists.md) · [edición: comentarios, surround, case](doc/editing-keybinds.md) · [marcas](doc/marks.md) · [Sidekick (agentes AI)](doc/sidekick.md)
+> 📖 Guías completas: [buffers, splits y pestañas](doc/buffers-keybinds.md) · [LSP y diagnósticos](doc/lsp-keybinds.md) · [quickfix y listas](doc/quickfix-lists.md) · [edición: comentarios, surround, case](doc/editing-keybinds.md) · [marcas](doc/marks.md) · [registros](doc/registers.md) · [Sidekick (agentes AI)](doc/sidekick.md)
 >
 > En herdr, `prefix+i` abre estas guías renderizadas en un popup (glow).
 
