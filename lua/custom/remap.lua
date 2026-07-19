@@ -11,8 +11,7 @@ vim.keymap.set('n', '<leader>p', '"+p', { desc = '[P]paste from the system clipb
 -- ghostty
 vim.keymap.set('i', '<C-`>', '<Esc>', { noremap = true, silent = true })
 
--- window navigation
-vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Move to left window' })
-vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Move to lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Move to upper window' })
-vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Move to right window' })
+-- window navigation lives in custom/plugins/smart-splits.lua (smart-splits keymaps)
+
+-- tabs
+vim.keymap.set('n', '<C-w>a', '<cmd>tabnew<cr>', { desc = '[A]ppend a new tab (mirrors herdr prefix+a)' })

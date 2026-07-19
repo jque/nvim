@@ -12,6 +12,15 @@ require('sidekick').setup {
         width = 100, -- ancho de la ventana lateral
         height = 20, -- altura si el layout fuese horizontal
       },
+      keys = {
+        -- defaults: <c-p> prompt picker, <c-b> buffer picker, <c-f> file picker
+        -- navegación de ventanas: la llevan los t-maps globales de smart-splits.lua
+        -- (herdr-aware); los nav_* de sidekick harían wincmd a secas
+        nav_left = false,
+        nav_down = false,
+        nav_up = false,
+        nav_right = false,
+      },
     },
   },
 }
@@ -69,7 +78,5 @@ map('n', '<leader>ar', function()
   require('sidekick.cli').focus()
 end, { desc = 'Sidekick - focus CLI' })
 
-map('t', '<C-h>', '<C-\\><C-n><C-w>h', { desc = 'Window: move left (from terminal)' })
-map('t', '<C-j>', '<C-\\><C-n><C-w>j', { desc = 'Window: move down (from terminal)' })
-map('t', '<C-k>', '<C-\\><C-n><C-w>k', { desc = 'Window: move up (from terminal)' })
-map('t', '<C-l>', '<C-\\><C-n><C-w>l', { desc = 'Window: move right (from terminal)' })
+-- Terminal-mode <C-hjkl> window navigation lives in custom/plugins/smart-splits.lua
+-- (herdr-aware: delegates to herdr panes at edges).

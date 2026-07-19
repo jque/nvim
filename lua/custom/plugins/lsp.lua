@@ -77,7 +77,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
     nmap('gd', require('snacks').picker.lsp_definitions, '[G]oto [D]efinition')
     nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-    nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+    -- <C-k> is reserved for window/herdr navigation (see plugins/smart-splits.lua)
+    nmap('gK', vim.lsp.buf.signature_help, 'Signature Documentation')
 
     -- Lesser used LSP functionality
     nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')

@@ -97,6 +97,12 @@ vim.pack.add({
   { src = 'https://github.com/ThePrimeagen/harpoon' },
   { src = 'https://github.com/romus204/tree-sitter-manager.nvim' },
   { src = 'https://github.com/folke/sidekick.nvim' },
+  { src = 'https://github.com/MeanderingProgrammer/render-markdown.nvim', version = vim.version.range('*') },
+
+  -- window navigation / resize
+  { src = 'https://github.com/mrjones2014/smart-splits.nvim' },
+  { src = 'https://github.com/lmilojevicc/herdr-splits.nvim' }, -- replaces smart-splits inside herdr
+  { src = 'https://github.com/nvimtools/hydra.nvim' },
 })
 
 -- Configure ------------------------------------------------------------------
@@ -120,3 +126,5 @@ require('custom.plugins.typescript')
 require('custom.plugins.vim-camelsnek')
 require('custom.plugins.tree-sitter-manager')
 require('custom.plugins.sidekick')
+require('custom.plugins.smart-splits')
+require('custom.plugins.render-markdown')

@@ -6,7 +6,9 @@ Custom version of [https://github.com/nvim-lua/kickstart.nvim](https://github.co
 
 ## Keymap Cheat Sheet
 
-> 📖 Guía completa de gestión de buffers, splits y pestañas: [doc/buffers-y-ventanas.md](doc/buffers-y-ventanas.md)
+> 📖 Guías completas: [buffers, splits y pestañas](doc/buffers-keybinds.md) · [LSP y diagnósticos](doc/lsp-keybinds.md) · [quickfix y listas](doc/quickfix-lists.md) · [edición: comentarios, surround, case](doc/editing-keybinds.md) · [marcas](doc/marks.md) · [Sidekick (agentes AI)](doc/sidekick.md)
+>
+> En herdr, `prefix+i` abre estas guías renderizadas en un popup (glow).
 
 ### General
 
@@ -21,11 +23,11 @@ Custom version of [https://github.com/nvim-lua/kickstart.nvim](https://github.co
 
 ### Buffers & Windows
 
-Ver la guía completa con todos los comandos nativos en [doc/buffers-y-ventanas.md](doc/buffers-y-ventanas.md).
+Ver la guía completa con todos los comandos nativos en [doc/buffers-keybinds.md](doc/buffers-keybinds.md).
 
 | Mapping | Mode | Description |
 | --- | --- | --- |
-| `<C-h>` / `<C-j>` / `<C-k>` / `<C-l>` | normal | Move to the left / lower / upper / right window |
+| `<C-h>` / `<C-j>` / `<C-k>` / `<C-l>` | normal/terminal | Move to the left / lower / upper / right window — inside herdr also crosses herdr panes ([herdr-splits.nvim](https://github.com/lmilojevicc/herdr-splits.nvim)) |
 | `<leader>sb` | normal | List open buffers (Telescope) |
 | `<C-^>` | normal | Toggle between the current and the alternate buffer |
 | `<C-w>s` / `<C-w>v` | normal | Horizontal / vertical split |
@@ -72,32 +74,16 @@ Ver la guía completa con todos los comandos nativos en [doc/buffers-y-ventanas.
 
 ### LSP & Diagnostics
 
-#### Core LSP actions
+Ver la guía completa con todos los atajos en [doc/lsp-keybinds.md](doc/lsp-keybinds.md).
 
 | Mapping | Mode | Description |
 | --- | --- | --- |
+| `gd` / `gD` / `gi` | normal | Go to definition (Snacks picker) / declaration / implementation |
+| `<leader>gr` | normal | References via Telescope |
 | `<leader>rn` | normal | Rename symbol |
 | `<leader>do` | normal | Code action |
-| `<leader>gd` | normal | Go to definition (Snacks picker) |
-| `<leader>gr` | normal | References via Telescope |
-| `<leader>gi` | normal | Go to implementation |
-| `<leader>D` | normal | Go to type definition |
-| `<leader>ds` | normal | Document symbols |
-| `<leader>ws` | normal | Workspace symbols |
-| `gD` | normal | Go to declaration |
-| `gd` | normal | Go to definition (Snacks picker) |
 | `K` | normal | Hover documentation |
-| `<C-k>` | normal | Signature help |
-| `<leader>wa` | normal | Add workspace folder |
-| `<leader>wr` | normal | Remove workspace folder |
-| `<leader>wl` | normal | List workspace folders |
-
-#### Diagnostic navigation (Lspsaga)
-
-| Mapping | Mode | Description |
-| --- | --- | --- |
-| `<leader>E` | normal | Jump to the previous diagnostic |
-| `<leader>e` | normal | Jump to the next diagnostic |
+| `<leader>e` / `<leader>E` | normal | Jump to the next / previous diagnostic |
 
 ### Completion & AI assistants
 
@@ -122,6 +108,8 @@ Ver la guía completa con todos los comandos nativos en [doc/buffers-y-ventanas.
 
 #### Sidekick CLI
 
+Ver la guía completa con todos los atajos en [doc/sidekick.md](doc/sidekick.md).
+
 | Mapping | Mode | Description |
 | --- | --- | --- |
 | `<Tab>` | normal | Jump to the next Sidekick edit suggestion (fallbacks to Tab) |
@@ -133,6 +121,8 @@ Ver la guía completa con todos los comandos nativos en [doc/buffers-y-ventanas.
 | `<leader>af` | normal | Send the current file |
 | `<leader>av` | visual | Send the visual selection |
 | `<leader>ap` | normal/visual | Open the Sidekick prompt picker |
+| `<C-p>` | agent window | Open the Sidekick prompt picker |
+| `<C-b>` | agent window | Open the buffer picker (inserts the buffer into the agent prompt) |
 | `<C-[>` | terminal | Exit terminal mode and return to normal mode |
 
 ### Treesitter
