@@ -8,7 +8,7 @@
 | Focus left                   | `h` / ←                  | `<C-h>`                     | `prefix+h`                                     | `ctrl+cmd+h`        |
 | Focus down                   | `j` / ↓                  | `<C-j>`                     | `prefix+j`                                     | `ctrl+cmd+j`        |
 | Focus up                     | `k` / ↑                  | `<C-k>`                     | `prefix+k`                                     | `ctrl+cmd+k`        |
-| Focus right                  | `l` / →                  | `<C-l>`                     | `prefix+l`                                     | `ctrl+cmd+l`        |
+| Focus right                  | `l` / →                  | `<C-l>`                     | — (bare `ctrl+l`; `prefix+l` = qlaunch)        | `ctrl+cmd+l`        |
 | Move node left/down/up/right | heavier chord            | —                           | —                                              | `ctrl+alt+cmd+hjkl` |
 | **Windows / panes**          |                          |                             |                                                |                     |
 | Split horizontal             | `s` = split              | `<C-w>s`                    | `prefix+s`                                     | —                   |
@@ -22,7 +22,7 @@
 | **Tabs / workspaces**        |                          |                             |                                                |                     |
 | Create tab                   | `a` = append             | `<C-w>a`                    | `prefix+a`                                     | —                   |
 | Create workspace             | `A` = append (workspace) | —                           | `prefix+A`                                     | —                   |
-| Next / prev tab              | `n` / `p`                | `gt` / `gT`                 | `prefix+n` / `prefix+p`                        | —                   |
+| Next / prev tab              | `n` / `p` (nvim)         | `gt` / `gT`                 | — (numbers only)                               | —                   |
 | Next / prev workspace        | `N` / `P`                | —                           | `prefix+N` / `prefix+P`                        | —                   |
 | Go to tab n                  | number                   | `{n}gt`                     | `prefix+1..9`                                  | —                   |
 | Close tab                    | `X` = bigger `x`         | `:tabclose`                 | `prefix+X`                                     | —                   |
@@ -33,6 +33,9 @@
 | **herdr find pane**          | `prefix+g`               | —                           | `j`/`k` move · `/` search · `enter` switch     | —                   |
 | **Cheatsheet library (popup)** | `i` = info             | —                           | `prefix+i` → pick doc · `esc` back · `q` close | —                   |
 | **TUI selector (popup)**     | `t` = tui                | —                           | `prefix+t` → fzf over `tui-*` aliases · `esc` cancels | —            |
+| **Quicklinks herdr-qlaunch (popup)** | `l` = links      | —                           | `prefix+l` → type to filter · `enter` open · `esc` close | —         |
+| **Projects herdr-proyects (popup)** | `o` = open project | —                          | `prefix+o` → type to filter · `enter` focus or create workspace · `esc` close | — |
+| **PRs pr-panel (popup)**     | `p` = pull requests      | —                           | `prefix+p` → `j/k` move · `enter` go to repo workspace · `o` browser · `r` refresh · `q` close | — |
 
 Notes: pane ↔ window, tab ↔ tab, herdr workspace ↔ session, AeroSpace workspace ↔ OS space. `prefix+W` (`new_worktree`, default `prefix+G`) creates a git worktree under `~/.herdr/worktrees` and opens a new workspace on it; also available from the CLI as `herdr worktree create|open|remove` (`open_worktree`/`remove_worktree` have no default binding). In navigate mode (`prefix+w`) moving between spaces needs `enter` to confirm (`esc` cancels); pane moves apply instantly and close the mode. The pane finder (`prefix+g`) has fixed keys — custom `navigate_*` binds don't apply there.
 

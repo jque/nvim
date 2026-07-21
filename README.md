@@ -6,7 +6,7 @@ Custom version of [https://github.com/nvim-lua/kickstart.nvim](https://github.co
 
 ## Keymap Cheat Sheet
 
-> 📖 Guías completas: [buffers, splits y pestañas](doc/buffers-keybinds.md) · [LSP y diagnósticos](doc/lsp-keybinds.md) · [quickfix y listas](doc/quickfix-lists.md) · [edición: comentarios, surround, case](doc/editing-keybinds.md) · [marcas](doc/marks.md) · [registros](doc/registers.md) · [Sidekick (agentes AI)](doc/sidekick.md)
+> 📖 Guías completas: [buffers, splits y pestañas](doc/buffers-keybinds.md) · [LSP y diagnósticos](doc/lsp-keybinds.md) · [quickfix y listas](doc/quickfix-lists.md) · [edición: comentarios, surround, case](doc/editing-keybinds.md) · [marcas](doc/marks.md) · [registros](doc/registers.md) · [Harpoon (navegación de ficheros)](doc/harpoon.md) · [nvim-tree (explorador)](doc/nvim-tree.md) · [Sidekick (agentes AI)](doc/sidekick.md) · [guh.nvim (PRs de GitHub)](doc/guh.md)
 >
 > En herdr, `prefix+i` abre estas guías renderizadas en un popup (glow).
 
@@ -40,6 +40,8 @@ Ver la guía completa con todos los comandos nativos en [doc/buffers-keybinds.md
 
 #### File explorer (`nvim-tree`)
 
+Ver la guía completa en [doc/nvim-tree.md](doc/nvim-tree.md).
+
 | Mapping | Mode | Description |
 | --- | --- | --- |
 | `<leader>t` | normal | Toggle the file tree on the right side |
@@ -62,6 +64,8 @@ Ver la guía completa con todos los comandos nativos en [doc/buffers-keybinds.md
 | `<leader>sr` | normal | Resume the previous picker |
 
 #### Harpoon
+
+Ver la guía completa en [doc/harpoon.md](doc/harpoon.md).
 
 | Mapping | Mode | Description |
 | --- | --- | --- |
