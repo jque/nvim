@@ -39,6 +39,10 @@ vim.g.diffs = {
     gitsigns = true,  -- we use gitsigns for gutter signs
     telescope = true, -- highlight telescope git previews (replaces delta)
   },
+  highlights = {
+    intra = { enabled = false }, -- sin word-diff: un solo verde/rojo por línea
+    blend_alpha = 0.9, -- DiffAdd/DiffDelete del tema casi sin diluir hacia el fondo
+  },
 }
 
 -- Install + load -------------------------------------------------------------
@@ -62,6 +66,8 @@ vim.pack.add({
 
   -- colorscheme
   { src = 'https://github.com/folke/tokyonight.nvim' },
+  { src = 'https://github.com/rebelot/kanagawa.nvim' },
+  { src = 'https://github.com/Mofiqul/dracula.nvim' },
 
   -- telescope + deps
   { src = 'https://github.com/nvim-lua/plenary.nvim' },
@@ -118,6 +124,8 @@ require('custom.plugins.lsp')
 require('custom.plugins.cmp')
 require('custom.plugins.conform')
 require('custom.plugins.gitsigns')
+require('custom.plugins.guh')
+require('custom.plugins.ollama-translate')
 require('custom.plugins.indent-blankline')
 require('custom.plugins.lualine')
 require('custom.plugins.filetree')

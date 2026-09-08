@@ -70,6 +70,18 @@ Actions that take text open an editable `guh://…/edit` buffer:
 
 `:GuhComment` is the ex-command equivalent of `cc`: `:.GuhComment` (line), `:'<,'>GuhComment` (range), `:%GuhComment` (top-level), `:.GuhComment!` (delete).
 
+### Translate/fix a draft with local ollama
+
+In any comment/review draft buffer, before confirming with `ZZ`:
+
+| Mapping / command | Description |
+| ----------------- | ----------- |
+| `<C-t>` (normal)  | Rewrite the whole draft: Spanish → English, or fix grammar if already English |
+| `<C-t>` (visual)  | Same, but only the selected lines |
+| `:[range]Translate` | Ex-command version, works in any buffer (no range = whole buffer) |
+
+Runs 100% locally against ollama (`translategemma:4b` by default — needs `ollama serve` running). Markdown and code blocks come through intact. Configured in `lua/custom/plugins/ollama-translate.lua`; override model/prompt/url via `vim.g.ollama_translate`.
+
 ## Notes
 
 - Data loads eagerly and is **never** re-fetched until you press `R`.

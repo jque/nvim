@@ -21,19 +21,23 @@
       "src": "https://github.com/saadparwaiz1/cmp_luasnip"
     },
     "conform.nvim": {
-      "rev": "619363c30309d29ffa631e67c8183f2a72caa373",
+      "rev": "016802de402556da54c36bd7359b441266b01cdd",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "diffs.nvim": {
-      "rev": "7ab445c39224160203ae692d3c883e2f51f2d442",
+      "rev": "f6567df7aee5ff3ec7e53a59e7f892ae3f9dcd02",
       "src": "https://github.com/barrettruth/diffs.nvim"
     },
+    "dracula.nvim": {
+      "rev": "ae752c13e95fb7c5f58da4b5123cb804ea7568ee",
+      "src": "https://github.com/Mofiqul/dracula.nvim"
+    },
     "fidget.nvim": {
-      "rev": "82404b196e73a00b1727a91903beef5ddc319d22",
+      "rev": "9e0201673e08e997e7cf52afca5565c70bd117f3",
       "src": "https://github.com/j-hui/fidget.nvim"
     },
     "gitsigns.nvim": {
-      "rev": "2038c666bd9d8a0b7349a0b6ee00dc83104b9ecf",
+      "rev": "5be654f2232c10ddcad19c1607a67b6b4b78fc29",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "guh.nvim": {
@@ -45,7 +49,7 @@
       "src": "https://github.com/ThePrimeagen/harpoon"
     },
     "herdr-splits.nvim": {
-      "rev": "19b9782c8d1941449bdb3376379adaa2444166a9",
+      "rev": "94f30cf4e9ac76ddf185a3acd0977be728fa4106",
       "src": "https://github.com/lmilojevicc/herdr-splits.nvim"
     },
     "hydra.nvim": {
@@ -53,15 +57,19 @@
       "src": "https://github.com/nvimtools/hydra.nvim"
     },
     "indent-blankline.nvim": {
-      "rev": "d28a3f70721c79e3c5f6693057ae929f3d9c0a03",
+      "rev": "f1e186e44d3b7f9ae918008e2c28ce37c6023d2d",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
+    },
+    "kanagawa.nvim": {
+      "rev": "bb85e4bfc8d89b0e62c8fa53ccdd13d12e2f77b3",
+      "src": "https://github.com/rebelot/kanagawa.nvim"
     },
     "lualine.nvim": {
       "rev": "221ce6b2d999187044529f49da6554a92f740a96",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
     "mason-lspconfig.nvim": {
-      "rev": "21c5b3ebeaa0412e28096bb0701434c51c1fbf76",
+      "rev": "5d32a9b8de9f90466797a740edb0fb4b3c27e423",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
     },
     "mason.nvim": {
@@ -73,7 +81,7 @@
       "src": "https://github.com/hrsh7th/nvim-cmp"
     },
     "nvim-lspconfig": {
-      "rev": "fef8b117ad5fb73943913f444f22065c4b834a60",
+      "rev": "da1aff0332774a0f60d52bf972e815dfc226f276",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-tree.lua": {
@@ -82,7 +90,7 @@
       "version": ">=0.0.0"
     },
     "nvim-web-devicons": {
-      "rev": "dfbfaa967a6f7ec50789bead7ef87e336c1fa63c",
+      "rev": "5f032a85be210cd1c6ac98861eb3b187ff3bd5eb",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "plenary.nvim": {
@@ -95,11 +103,11 @@
       "version": ">=0.0.0"
     },
     "sidekick.nvim": {
-      "rev": "208e1c5b8170c01fd1d07df0139322a76479b235",
+      "rev": "3d80a47e6375f6d647c9695d3afea6fa1b3275df",
       "src": "https://github.com/folke/sidekick.nvim"
     },
     "smart-splits.nvim": {
-      "rev": "9493405fb8ee683aa6efd50c529f6296ad8f40ad",
+      "rev": "ec76708f1617ef9e2ac353357fe52d2c997a0f06",
       "src": "https://github.com/mrjones2014/smart-splits.nvim"
     },
     "snacks.nvim": {
@@ -128,7 +136,7 @@
       "src": "https://github.com/folke/tokyonight.nvim"
     },
     "tree-sitter-manager.nvim": {
-      "rev": "ae305699da5e97b6cffdd5cc6f6045b1b0bd26ea",
+      "rev": "1425eacb78bfee34face0fe06a8384ac3c4d9c8e",
       "src": "https://github.com/romus204/tree-sitter-manager.nvim"
     },
     "trouble.nvim": {

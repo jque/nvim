@@ -80,3 +80,35 @@ end, { desc = 'Sidekick - focus CLI' })
 
 -- Terminal-mode <C-hjkl> window navigation lives in custom/plugins/smart-splits.lua
 -- (herdr-aware: delegates to herdr panes at edges).
+
+-- herdr ⇄ nvim agent bridge (see ~/.config/herdr/docs/nvim-agent-bridge.md).
+-- Inside a herdr pane, report the agent as soon as its terminal opens and
+-- release it when the terminal closes. Codex only fires its SessionStart hook
+-- on the first prompt, and opencode has no shell hooks at all, so without this
+-- they would show up late or stay listed after exiting. The script ignores
+-- agents it does not know, so plain shells and other tools are harmless.
+if vim.env.HERDR_ENV == '1' then
+  local group = vim.api.nvim_create_augroup('herdr_nvim_agent_bridge', { clear = true })
+  local script = vim.fn.expand('~/.config/herdr/hooks/herdr-nvim-agent-state.sh')
+
+  local function report(action)
+    return function(ev)
+      local tool = vim.b[ev.buf].sidekick_cli
+      local agent = tool and tool.name
+      if agent == nil then
+        -- plain :term <agent>: buffer name is term://<cwd>//<pid>:<cmd>
+        agent = vim.api.nvim_buf_get_name(ev.buf):match('//%d+:(%S+)')
+        if agent then
+          agent = vim.fn.fnamemodify(agent, ':t')
+        end
+      end
+      if agent == nil then
+        return
+      end
+      vim.system({ script, agent, action }, { env = { NVIM = vim.v.servername }, stdin = false })
+    end
+  end
+
+  vim.api.nvim_create_autocmd('TermOpen', { group = group, callback = report 'session' })
+  vim.api.nvim_create_autocmd('TermClose', { group = group, callback = report 'end' })
+end

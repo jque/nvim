@@ -16,5 +16,6 @@ Guías completas organizadas por tema:
 - [nvim-tree (explorador)](doc/nvim-tree.md)
 - [Sidekick (agentes AI)](doc/sidekick.md)
 - [guh.nvim (PRs de GitHub)](doc/guh.md)
+- [Leer diffs (formato unificado, guh, diffs.nvim)](doc/reading-diffs.md)
 
 En herdr, `prefix+i` abre estas guías renderizadas en un popup (glow).
