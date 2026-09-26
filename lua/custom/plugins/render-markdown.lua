@@ -3,6 +3,7 @@
 -- treesitter parsers (ensured in custom/plugins/tree-sitter-manager.lua).
 require('render-markdown').setup {
   completions = { lsp = { enabled = true } },
+  latex = { enabled = false }, -- no latex parser installed
   -- Keep the cursor line rendered in normal mode; raw source only shows in
   -- insert mode (render_modes defaults to n/c/t, so insert un-renders).
   anti_conceal = { enabled = false },

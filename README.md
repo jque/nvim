@@ -14,7 +14,8 @@ Guías completas organizadas por tema:
 - [Registros](doc/registers.md)
 - [Harpoon (navegación de ficheros)](doc/harpoon.md)
 - [nvim-tree (explorador)](doc/nvim-tree.md)
-- [Sidekick (agentes AI)](doc/sidekick.md)
+- [Sidekick (agentes AI, desactivado)](doc/sidekick.md)
+- [herdr-nvim (anotaciones para agentes herdr)](doc/herdr-nvim.md)
 - [guh.nvim (PRs de GitHub)](doc/guh.md)
 - [Leer diffs (formato unificado, guh, diffs.nvim)](doc/reading-diffs.md)
 

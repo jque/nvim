@@ -1,18 +1,14 @@
 # Editing operators — comments, surround, case
 
-Three editing plugins plus treesitter text objects. All follow vim grammar: `operator + motion/text-object`.
+Native commenting, two editing plugins and treesitter text objects. All follow vim grammar: `operator + motion/text-object`.
 
-## Comments ([Comment.nvim](https://github.com/numToStr/Comment.nvim), default mappings)
+## Comments (built into Neovim >= 0.10, see `:help commenting`)
 
 | Mapping     | Mode   | Mnemonic            | Description                                        |
 | ----------- | ------ | ------------------- | -------------------------------------------------- |
 | `gcc`       | normal | `g` `c`omment line  | Toggle comment on the current line                 |
 | `gc{motion}` | normal | comment + motion   | Toggle comment over a motion: `gcip` (paragraph), `gc3j` (3 lines down), `gcG` (to end of file) |
 | `gc`        | visual | —                   | Toggle comment on the selection                    |
-| `gbc`       | normal | `g` `b`lock         | Toggle a block comment (`/* ... */`) on the line   |
-| `gb`        | visual | —                   | Block-comment the selection                        |
-| `gco` / `gcO` | normal | like `o` / `O`    | Insert a commented line below / above              |
-| `gcA`       | normal | like `A`            | Append a comment at the end of the line            |
 
 Combos with treesitter text objects: `gcaf` comments the whole function, `gcac` the whole class.
 

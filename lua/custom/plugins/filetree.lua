@@ -1,8 +1,5 @@
 -- File explorer. Plugin (+ nvim-web-devicons) installed in custom/package.lua.
 
--- Unless you are still migrating, remove the deprecated commands from v1.x
-vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
-
 -- <C-k> is reserved for window/herdr navigation (see plugins/smart-splits.lua);
 -- nvim-tree binds it to "file info" by default, so rebind that to `gi`.
 local function on_attach(bufnr)

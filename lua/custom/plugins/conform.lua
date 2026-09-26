@@ -6,14 +6,10 @@
 -- still registers its own BufWritePre autocmd via setup().
 require('conform').setup {
   notify_on_error = false,
-  format_on_save = function(bufnr)
-    local lsp_format_opt = 'never'
-
-    return {
-      timeout_ms = 500,
-      lsp_format = lsp_format_opt,
-    }
-  end,
+  format_on_save = {
+    timeout_ms = 500,
+    lsp_format = 'never',
+  },
   formatters_by_ft = {
     go = { 'goimports', 'gofmt' },
     lua = { 'stylua' },
@@ -29,14 +25,14 @@ require('conform').setup {
   formatters = {
     ['biome-organize-imports'] = {
       condition = function(ctx)
-        local biome_root = vim.fs.find({ 'biome.json' }, { path = ctx.filename, upward = true })
+        local biome_root = vim.fs.find({ 'biome.json', 'biome.jsonc' }, { path = ctx.filename, upward = true })
 
         return biome_root[1] ~= nil
       end,
     },
     biome = {
       condition = function(ctx)
-        local biome_root = vim.fs.find({ 'biome.json' }, { path = ctx.filename, upward = true })
+        local biome_root = vim.fs.find({ 'biome.json', 'biome.jsonc' }, { path = ctx.filename, upward = true })
 
         return biome_root[1] ~= nil
       end,

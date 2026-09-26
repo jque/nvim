@@ -3,7 +3,7 @@
 require('lualine').setup {
   options = {
     icons_enabled = false,
-    theme = 'tokyonight-night',
+    theme = 'auto', -- follows the colorscheme set in custom/themes/init.lua
     component_separators = '|',
     section_separators = '',
   },
@@ -21,6 +21,16 @@ require('lualine').setup {
         -- 2: Absolute path
         -- 3: Absolute path, with tilde as the home directory
       },
+    },
+    lualine_x = {
+      -- herdr-nvim pending annotations (empty when there are none)
+      function()
+        local ok, herdr = pcall(require, 'herdr-nvim')
+        return ok and herdr.statusline() or ''
+      end,
+      'encoding',
+      'fileformat',
+      'filetype',
     },
   },
 }

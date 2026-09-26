@@ -18,7 +18,6 @@ require('telescope').setup {
 }
 
 pcall(require('telescope').load_extension, 'fzf')
-pcall(require('telescope').load_extension, 'file_browser')
 pcall(require('telescope').load_extension, 'ui-select')
 
 -- See `:help telescope.builtin`
@@ -40,5 +39,4 @@ vim.keymap.set('n', '<leader>sb', require('telescope.builtin').buffers, { desc =
 vim.keymap.set('n', '<leader>sc', require('telescope.builtin').git_status, { desc = '[S]earch [C]changes' })
 vim.keymap.set('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = '[S]earch [k]eymaps' })
 vim.keymap.set('n', '<leader>sj', require('telescope.builtin').jumplist, { desc = '[S]earch [J]umplist' })
-vim.keymap.set('n', '<leader>se', require('telescope.builtin').diagnostics, { desc = '[S]earch [E]errors' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]resume' })

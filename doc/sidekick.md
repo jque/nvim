@@ -1,12 +1,13 @@
 # Sidekick — keybinds
 
+> **Disabled.** sidekick is commented out in `lua/custom/package.lua`; `<leader>a` now belongs to [herdr-nvim](herdr-nvim.md). Config kept in `lua/custom/plugins/sidekick.lua` to re-enable.
+
 [sidekick.nvim](https://github.com/folke/sidekick.nvim) integrates AI CLI agents (Claude, Codex, Copilot...) in a side window inside nvim (`layout = left`, 100 columns). Config in `lua/custom/plugins/sidekick.lua`.
 
 ## Global (from any buffer)
 
 | Mapping      | Mode                          | Description                                            |
 | ------------ | ----------------------------- | ------------------------------------------------------ |
-| `<Tab>`      | normal                        | Jump/apply next edit suggestion (falls back to `<Tab>`) |
 | `<C-.>`      | normal/insert/visual/terminal | Toggle the agent window                                |
 | `<leader>aa` | normal                        | Toggle CLI                                             |
 | `<leader>as` | normal                        | Select CLI session (pick agent)                        |

@@ -57,11 +57,10 @@ vim.pack.add({
   { src = 'https://github.com/tpope/vim-surround' },
 
   -- editing helpers
-  { src = 'https://github.com/numToStr/Comment.nvim' },
   { src = 'https://github.com/folke/which-key.nvim' },
   { src = 'https://github.com/nicwest/vim-camelsnek' },
   { src = 'https://github.com/justinmk/guh.nvim' },
-  { src = 'https://github.com/barrettruth/diffs.nvim' }, -- diff highlighting for guh.nvim
+  { src = 'https://forge.barrettruth.com/barrettruth/diffs.nvim' }, -- diff highlighting for guh.nvim
   { src = 'https://github.com/dmmulroy/ts-error-translator.nvim' },
 
   -- colorscheme
@@ -72,7 +71,6 @@ vim.pack.add({
   -- telescope + deps
   { src = 'https://github.com/nvim-lua/plenary.nvim' },
   { src = 'https://github.com/nvim-telescope/telescope.nvim', version = vim.version.range('*') },
-  { src = 'https://github.com/nvim-telescope/telescope-file-browser.nvim' },
   { src = 'https://github.com/nvim-telescope/telescope-ui-select.nvim' },
   { src = 'https://github.com/nvim-telescope/telescope-fzf-native.nvim' },
 
@@ -81,7 +79,6 @@ vim.pack.add({
   { src = 'https://github.com/mason-org/mason-lspconfig.nvim' },
   { src = 'https://github.com/neovim/nvim-lspconfig' },
   { src = 'https://github.com/j-hui/fidget.nvim' },
-  { src = 'https://github.com/folke/snacks.nvim' },
 
   -- completion
   { src = 'https://github.com/hrsh7th/nvim-cmp' },
@@ -100,9 +97,10 @@ vim.pack.add({
   { src = 'https://github.com/nvim-tree/nvim-web-devicons' },
   { src = 'https://github.com/nvim-tree/nvim-tree.lua', version = vim.version.range('*') },
   { src = 'https://github.com/folke/trouble.nvim' },
-  { src = 'https://github.com/ThePrimeagen/harpoon' },
+  -- { src = 'https://github.com/ThePrimeagen/harpoon' }, -- not in use for now (config kept in custom/plugins/harpoon.lua)
   { src = 'https://github.com/romus204/tree-sitter-manager.nvim' },
-  { src = 'https://github.com/folke/sidekick.nvim' },
+  -- { src = 'https://github.com/folke/sidekick.nvim' }, -- disabled: herdr-nvim owns <leader>a now (config kept in plugins/sidekick.lua)
+  { src = 'https://github.com/ChmaraX/herdr-nvim' }, -- annotations -> herdr agents (nvim half)
   { src = 'https://github.com/MeanderingProgrammer/render-markdown.nvim', version = vim.version.range('*') },
 
   -- window navigation / resize
@@ -119,7 +117,7 @@ require('custom.themes')
 -- being configured (harpoon registers a telescope extension).
 require('custom.plugins.misc')
 require('custom.plugins.telescope')
-require('custom.plugins.harpoon')
+-- require('custom.plugins.harpoon') -- harpoon disabled, see vim.pack.add above
 require('custom.plugins.lsp')
 require('custom.plugins.cmp')
 require('custom.plugins.conform')
@@ -133,6 +131,7 @@ require('custom.plugins.trouble')
 require('custom.plugins.typescript')
 require('custom.plugins.vim-camelsnek')
 require('custom.plugins.tree-sitter-manager')
-require('custom.plugins.sidekick')
+-- require('custom.plugins.sidekick') -- sidekick disabled, see vim.pack.add above
+require('custom.plugins.herdr-nvim')
 require('custom.plugins.smart-splits')
 require('custom.plugins.render-markdown')

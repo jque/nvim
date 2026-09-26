@@ -6,10 +6,10 @@ Servers via [mason](https://github.com/mason-org/mason.nvim): `ts_ls`, `lua_ls`,
 
 | Mapping      | Mnemonic                | Description                                        |
 | ------------ | ----------------------- | -------------------------------------------------- |
-| `gd`         | `g`oto `d`efinition     | Definition (Snacks picker)                         |
+| `gd`         | `g`oto `d`efinition     | Definition (Telescope)                         |
 | `gD`         | bigger jump             | Declaration                                        |
 | `gi`         | `g`oto `i`mplementation | Implementation                                     |
-| `<leader>gd` | same as `gd`            | Definition (Snacks picker)                         |
+| `<leader>gd` | same as `gd`            | Definition (Telescope)                         |
 | `<leader>gi` | same as `gi`            | Implementation                                     |
 | `<leader>gr` | `g`oto `r`eferences     | References (Telescope)                             |
 | `<leader>D`  | type `D`efinition       | Type definition                                    |
@@ -40,7 +40,6 @@ Servers via [mason](https://github.com/mason-org/mason.nvim): `ts_ls`, `lua_ls`,
 | `<leader>df` | `d`iagnostic `f`loat | Show diagnostic under cursor in a float           |
 | `<leader>dl` | `d`iagnostic `l`ist  | Send diagnostics to the location list             |
 | `<leader>sd` | `s`earch `d`iagnostics | All project diagnostics (Telescope)             |
-| `<leader>se` | `s`earch `e`rrors    | Alias of `<leader>sd`                             |
 | `:Trouble diagnostics` | —          | Diagnostics UI ([trouble](https://github.com/folke/trouble.nvim), no keymap bound) |
 
 ## Workspace folders (rarely used)
@@ -51,4 +50,4 @@ Servers via [mason](https://github.com/mason-org/mason.nvim): `ts_ls`, `lua_ls`,
 | `<leader>wr` | `w`orkspace `r`emove | Remove workspace folder                           |
 | `<leader>wl` | `w`orkspace `l`ist | Print workspace folders                             |
 
-Notes: diagnostic jumps are plain `vim.diagnostic.goto_next/prev` — Lspsaga is disabled (`lua/custom/disabled/lspsaga.lua`). `gd` is bound twice in `lsp.lua` (native + Snacks); the Snacks picker wins as it's set last. `<leader>gd`/`<leader>gi` duplicate `gd`/`gi`.
+Notes: diagnostic jumps use `vim.diagnostic.jump` (with a float). `<leader>gd`/`<leader>gi` duplicate `gd`/`gi`.

@@ -2,18 +2,17 @@
 -- https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 --
--- Plugins (mason, mason-lspconfig, nvim-lspconfig, fidget, snacks) installed in
+-- Plugins (mason, mason-lspconfig, nvim-lspconfig, fidget) installed in
 -- custom/package.lua. mason must be set up before mason-lspconfig.
 require('mason').setup {}
 require('fidget').setup {} -- lsp status
 
 require('mason-lspconfig').setup {
+  -- Only real LSP servers here (eslint_d is a formatter, see conform.lua).
   automatic_enable = {
     'ts_ls',
     'lua_ls',
-    'vimls',
-    'eslint',   -- lsp
-    'eslint_d', -- format
+    'eslint',
     'biome',
   },
 }
@@ -63,9 +62,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 
     nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-    nmap('<leader>do', vim.lsp.buf.code_action, '[C]ode [A]ction')
-    -- nmap('<leader>gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-    nmap('<leader>gd', require('snacks').picker.lsp_definitions, '[G]oto [D]efinition')
+    nmap('<leader>do', vim.lsp.buf.code_action, '[Do] code action')
+    nmap('<leader>gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
     nmap('<leader>gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
     nmap('<leader>gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
     nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
@@ -74,8 +72,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     nmap('gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
     nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-    nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-    nmap('gd', require('snacks').picker.lsp_definitions, '[G]oto [D]efinition')
+    nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
     nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
     -- <C-k> is reserved for window/herdr navigation (see plugins/smart-splits.lua)
     nmap('gK', vim.lsp.buf.signature_help, 'Signature Documentation')

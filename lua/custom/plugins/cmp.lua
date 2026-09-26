@@ -44,17 +44,16 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
-    -- { name = "supermaven" },
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
     {
       name = 'buffer',
       max_item_count = 5,
       option = {
         get_bufnrs = function()
           return vim.api.nvim_list_bufs()
-        end
-      }
+        end,
+      },
     },
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
   },
 }
