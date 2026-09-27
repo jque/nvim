@@ -56,5 +56,5 @@ Global marks survive restarts (saved in shada), so they work as lightweight pers
 
 Notes: lowercase marks live in the buffer (persisted per-file in shada); capital marks are the ones to use as cross-file bookmarks.
 Marks stick to their line when you edit above them, but deleting the marked line drops column accuracy. Jumps to marks also push onto
-the jumplist (`<C-o>`/`<C-i>` walk it). For frecent *file*-level navigation this config uses Harpoon instead: `<leader>ha` add,
-`<leader><space>` menu, `<leader>sm` telescope picker — marks shine *within* files and for operator motions, Harpoon for files.
+the jumplist (`<C-o>`/`<C-i>` walk it). For *file*-level navigation use the pickers instead: `<leader>sf` git files, `<leader>sb` open
+buffers, `<leader>sj` jumplist, `<leader>?` recently opened — marks shine *within* files and as operator motion targets.

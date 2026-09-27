@@ -1,12 +1,19 @@
--- herdr-nvim: code annotations you send to the agent in your herdr workspace.
--- Plugin installed in custom/package.lua. The herdr half (sidebar + file
--- picker) is installed with `herdr plugin install ChmaraX/herdr-nvim` and
--- bound in ~/.config/herdr/config.toml (prefix+n sidebar, prefix+f picker).
+-- What this plugin is for: annotate code with comments and push them to the
+-- coding agent running in your herdr workspace (herdr is a terminal multiplexer
+-- for agents), without leaving Neovim.
 --
--- The plugin's default prefix is <leader>a, which used to collide with sidekick
--- (<leader>as = "select CLI" there vs "send comments" here). We disable its
--- keymaps (sidekick is disabled now) and bind our own under <leader>a, mirroring the
--- sidekick layout: <leader>a + t/v/s for this/visual/send.
+-- How it is used: <leader>ac comments a line (or the visual selection),
+-- <leader>al lists the pending comments, <leader>at comments the line/selection
+-- and sends everything to the agent.
+--
+-- Install: the plugin is in custom/package.lua. The herdr half (sidebar + file
+-- picker) is installed with `herdr plugin install ChmaraX/herdr-nvim` and bound
+-- in ~/.config/herdr/config.toml (prefix+n sidebar, prefix+f picker).
+--
+-- Keymaps: the plugin's default prefix is <leader>a, which used to collide with
+-- sidekick (<leader>as = "select CLI" there vs "send comments" here). We disable
+-- its keymaps (sidekick is disabled now) and bind our own under <leader>a,
+-- mirroring the sidekick layout: <leader>a + t/v/s for this/visual/send.
 local herdr = require 'herdr-nvim'
 
 herdr.setup {

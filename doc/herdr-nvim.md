@@ -10,7 +10,8 @@ The plugin's default prefix `<leader>a` collides with sidekick, Sidekick is disa
 | ---------- | -------------------------------------------------------- |
 | `prefix+n` | Toggle the nvim sidebar (panes move left, nvim on right) |
 | `prefix+f` | Fuzzy picker: agent-touched files first, then whole repo |
-| `prefix+H` / `J` / `K` / `L` | Swap the current pane with its neighbour (left / down / up / right). Not a sticky mode: one press per move. herdr has no native swap mode, this runs `herdr pane swap --current --direction …` |
+
+Pane movement (`prefix+h/j/k/l`, `prefix+w`, `prefix+g`, swap with `prefix+H/J/K/L`) is plain herdr, not this plugin — see [buffers-keybinds.md](buffers-keybinds.md).
 
 ## nvim keymaps
 

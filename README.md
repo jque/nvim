@@ -12,7 +12,6 @@ Guías completas organizadas por tema:
 - [Edición: comentarios, surround, case](doc/editing-keybinds.md)
 - [Marcas](doc/marks.md)
 - [Registros](doc/registers.md)
-- [Harpoon (navegación de ficheros)](doc/harpoon.md)
 - [nvim-tree (explorador)](doc/nvim-tree.md)
 - [Sidekick (agentes AI, desactivado)](doc/sidekick.md)
 - [herdr-nvim (anotaciones para agentes herdr)](doc/herdr-nvim.md)
