@@ -129,3 +129,17 @@ Navigation in review: `:cnext`/`:cprev` between files, `:lnext`/`:lprev` between
 Trade-off: `:Diff review` has no PR comments/threads; to comment, go back to the guh prdiff.
 
 See also: [guh.md](guh.md), `:h diffs.nvim`, `:h diff-format`.
+
+## Cambios locales sin commit: gitsigns
+
+Para el fichero abierto, gitsigns marca en el gutter cada hunk sin commitear (`+` añadido, `~` cambiado, `_` borrado). Atajos (solo en buffers dentro de un repo):
+
+| Tecla        | Acción                                                        |
+| ------------ | ------------------------------------------------------------- |
+| `]c` / `[c`  | Siguiente / anterior hunk (en modo diff conserva el `]c` nativo) |
+| `<leader>gj` / `<leader>gk` | Siguiente / anterior hunk (alternativa bajo el grupo `g` de git) |
+| `<leader>gp` | Preview flotante del hunk bajo el cursor                      |
+| `<leader>gd` | `diffthis`: split vertical del fichero contra el índice de Git |
+| `<leader>gt` | Mostrar/ocultar las líneas eliminadas como texto virtual       |
+
+Dentro del split de `<leader>gd` estás en modo diff: `]c`/`[c` saltan entre cambios, `do`/`dp` traen/llevan el cambio, `:q` cierra la copia del índice.

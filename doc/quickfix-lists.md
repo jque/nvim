@@ -32,7 +32,7 @@ In the quickfix window itself: `j`/`k` to move, `<CR>` jumps to the entry.
 
 ## Recipes
 
-**Rename a word across the project** (plain text — for code symbols prefer LSP `<leader>rn`, see [lsp-keybinds](lsp-keybinds.md)):
+**Rename a word across the project** (plain text — for code symbols prefer LSP `<leader>ln`, see [lsp-keybinds](lsp-keybinds.md)):
 
 1. `<leader>sw` on the word (or `<leader>sg` and type it)
 2. `<C-q>` → results land in quickfix

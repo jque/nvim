@@ -10,9 +10,10 @@ wk.setup {
 }
 wk.add {
   { '<leader>a', group = 'herdr (agent comments)', icon = { icon = '󰚩 ', color = 'green' } }, -- sidekick disabled
-  { '<leader>d', group = 'diagnostics / lsp' },
-  { '<leader>g', group = 'goto (lsp)' },
+  { '<leader>d', group = 'diagnostics' },
+  { '<leader>g', group = 'git hunks (gitsigns)' },
+  { '<leader>l', group = 'lsp' },
+  { '<leader>lw', group = 'lsp workspace folders' },
   { '<leader>m', group = 'markdown' },
   { '<leader>s', group = 'search (telescope)' },
-  { '<leader>w', group = 'workspace (lsp)' },
 }

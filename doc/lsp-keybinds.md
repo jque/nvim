@@ -9,10 +9,10 @@ Servers via [mason](https://github.com/mason-org/mason.nvim): `ts_ls`, `lua_ls`,
 | `gd`         | `g`oto `d`efinition     | Definition (Telescope)                         |
 | `gD`         | bigger jump             | Declaration                                        |
 | `gi`         | `g`oto `i`mplementation | Implementation                                     |
-| `<leader>gd` | same as `gd`            | Definition (Telescope)                         |
-| `<leader>gi` | same as `gi`            | Implementation                                     |
-| `<leader>gr` | `g`oto `r`eferences     | References (Telescope)                             |
-| `<leader>D`  | type `D`efinition       | Type definition                                    |
+| `<leader>ld` | `l`sp `d`efinition      | Definition (Telescope), same as `gd`               |
+| `<leader>li` | `l`sp `i`mplementation  | Implementation, same as `gi`                       |
+| `<leader>lr` | `l`sp `r`eferences      | References (Telescope)                             |
+| `<leader>lt` | `l`sp `t`ype            | Type definition                                    |
 
 ## Docs & symbols
 
@@ -20,15 +20,15 @@ Servers via [mason](https://github.com/mason-org/mason.nvim): `ts_ls`, `lua_ls`,
 | ------------ | ------------------- | -------------------------------------------------- |
 | `K`          | vim's "keyword"     | Hover documentation                                |
 | `gK`         | `g`oto + `K` hover  | Signature help (`<C-k>` is window navigation)      |
-| `<leader>ds` | `d`ocument `s`ymbols | Document symbols (Telescope)                      |
-| `<leader>ws` | `w`orkspace `s`ymbols | Workspace symbols, dynamic (Telescope)           |
+| `<leader>ls` | `l`sp `s`ymbols      | Document symbols (Telescope)                      |
+| `<leader>lS` | `l`sp `S`ymbols (big) | Workspace symbols, dynamic (Telescope)           |
 
 ## Refactor & format
 
 | Mapping      | Mnemonic          | Description                                          |
 | ------------ | ----------------- | ---------------------------------------------------- |
-| `<leader>rn` | `r`e`n`ame        | Rename symbol project-wide                           |
-| `<leader>do` | `do` something    | Code action                                          |
+| `<leader>ln` | `l`sp re`n`ame    | Rename symbol project-wide                           |
+| `<leader>la` | `l`sp `a`ction    | Code action                                          |
 | `<leader>f`  | `f`ormat          | Format buffer ([conform](https://github.com/stevearc/conform.nvim); also formats on save) |
 
 ## Diagnostics
@@ -46,8 +46,8 @@ Servers via [mason](https://github.com/mason-org/mason.nvim): `ts_ls`, `lua_ls`,
 
 | Mapping      | Mnemonic           | Description                                         |
 | ------------ | ------------------ | --------------------------------------------------- |
-| `<leader>wa` | `w`orkspace `a`dd  | Add workspace folder                                |
-| `<leader>wr` | `w`orkspace `r`emove | Remove workspace folder                           |
-| `<leader>wl` | `w`orkspace `l`ist | Print workspace folders                             |
+| `<leader>lwa` | `l`sp `w`orkspace `a`dd  | Add workspace folder                              |
+| `<leader>lwr` | `l`sp `w`orkspace `r`emove | Remove workspace folder                         |
+| `<leader>lwl` | `l`sp `w`orkspace `l`ist | Print workspace folders                           |
 
-Notes: diagnostic jumps use `vim.diagnostic.jump` (with a float). `<leader>gd`/`<leader>gi` duplicate `gd`/`gi`.
+Notes: diagnostic jumps use `vim.diagnostic.jump` (with a float). `<leader>ld`/`<leader>li` duplicate `gd`/`gi`. `<leader>g` is git hunks (gitsigns), see [reading-diffs](reading-diffs.md).
