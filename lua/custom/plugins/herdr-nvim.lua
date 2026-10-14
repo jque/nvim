@@ -46,10 +46,10 @@ end, { desc = 'Herdr - Send and submit comments to agent' })
 -- agent right away (cancelling the prompt does nothing). `submit` decides whether
 -- the agent runs it (ht) or it just lands in its input for you to finish (hT).
 -- Same internals as herdr.comment_range, plus send_all on the callback.
-local function comment_and_send(start_line, end_line, submit)
+local function comment_and_send(span, submit)
   local bufnr = vim.api.nvim_get_current_buf()
   require('herdr-nvim.ui').input_comment(function(text)
-    local id = require('herdr-nvim.comments').add(bufnr, start_line, end_line, text)
+    local id = require('herdr-nvim.comments').add(bufnr, span, text)
     require('herdr-nvim.ui').decorate(id)
     herdr.send_all { submit = submit }
   end)
@@ -61,11 +61,10 @@ local function send_this(submit)
     local in_visual = vim.fn.mode():match '^[vV\22]' ~= nil
     if in_visual then
       vim.cmd [[execute "normal! \<esc>"]] -- materialize the visual marks
-      local s, e = require('herdr-nvim.ui').visual_range()
-      comment_and_send(s, e, submit)
+      comment_and_send(require('herdr-nvim.ui').visual_region(), submit)
     else
       local l = vim.api.nvim_win_get_cursor(0)[1]
-      comment_and_send(l, l, submit)
+      comment_and_send({ start_line = l, end_line = l }, submit)
     end
   end
 end
