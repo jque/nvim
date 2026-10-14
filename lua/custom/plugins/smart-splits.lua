@@ -10,6 +10,55 @@ local splits = in_herdr and require('herdr-splits') or require('smart-splits')
 -- herdr-splits option: nvim resize step in cells (herdr side uses its ratio default)
 splits.setup(in_herdr and { neovim_amount = 3 } or {})
 
+-- herdr-nvim sidebar: the pane runs a thin `nvim --remote-ui` client attached to
+-- a per-tab headless daemon (where this config runs). The daemon inherits
+-- HERDR_PANE_ID from whichever pane spawned it first and outlives toggles, so
+-- herdr-splits ends up calling `herdr pane ... --current` with a dead pane id
+-- and edge delegation silently fails. On every UI attach, find the pane whose
+-- foreground process is the remote-ui client of *this* server and adopt its id.
+-- No-op for a regular nvim (no pane matches its servername).
+if in_herdr then
+  local function adopt_sidebar_pane_id()
+    local herdr = vim.env.HERDR_BIN_PATH or 'herdr'
+    local server = vim.v.servername
+    local tab = vim.env.HERDR_TAB_ID
+    if not server or server == '' or not tab then
+      return
+    end
+    -- vim.system callbacks run in a fast context (no vim.env / vimscript
+    -- there), so every callback defers its real work with vim.schedule.
+    local function decoded(out)
+      local ok, data = pcall(vim.json.decode, out.stdout or '')
+      return ok and type(data) == 'table' and data.result or nil
+    end
+    vim.system({ herdr, 'pane', 'list' }, { text = true }, function(list)
+      vim.schedule(function()
+        local result = decoded(list)
+        for _, pane in ipairs(result and result.panes or {}) do
+          if pane.tab_id == tab and pane.label == 'nvim sidebar' then
+            vim.system({ herdr, 'pane', 'process-info', '--pane', pane.pane_id }, { text = true }, function(info)
+              vim.schedule(function()
+                local iresult = decoded(info)
+                local procs = iresult and iresult.process_info and iresult.process_info.foreground_processes or {}
+                for _, proc in ipairs(procs) do
+                  if (proc.cmdline or ''):find(server, 1, true) then
+                    vim.env.HERDR_PANE_ID = pane.pane_id
+                    return
+                  end
+                end
+              end)
+            end)
+          end
+        end
+      end)
+    end)
+  end
+  vim.api.nvim_create_autocmd('UIEnter', {
+    group = vim.api.nvim_create_augroup('custom_herdr_sidebar_pane', { clear = true }),
+    callback = adopt_sidebar_pane_id,
+  })
+end
+
 -- Window navigation (replaces the raw <C-w>hjkl maps that lived in remap.lua).
 vim.keymap.set('n', '<C-h>', splits.move_cursor_left, { desc = 'Move to left window' })
 vim.keymap.set('n', '<C-j>', splits.move_cursor_down, { desc = 'Move to lower window' })
